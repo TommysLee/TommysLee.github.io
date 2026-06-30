@@ -13,10 +13,11 @@
       --button-gradient: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
     }
 
-    body {
+    html {
       background: linear-gradient(125deg,rgba(255,122,182,.18),transparent 24rem),radial-gradient(circle at 50% 5%,rgba(255,255,255,.86),transparent 25rem),radial-gradient(circle at 18% 4%,rgba(255,181,69,.18),transparent 30rem),radial-gradient(circle at 82% 8%,rgba(124,92,255,.2),transparent 32rem),radial-gradient(circle at 68% 32%,rgba(51,214,166,.13),transparent 26rem),linear-gradient(180deg,#fbfaf8,#f6f4ef 52%,#fbfaf8);
       margin: 0;
       padding: 20px;
+      min-width: 1180px;
     }
 
     .text-grad-purple {
@@ -140,8 +141,7 @@
 
     #app {
       margin: 0 auto;
-      width: 90vw;
-      min-width: 1160px;
+      width: 96%;
     }
     #app h1 {
       font-size: clamp(52px,5.35vw,74px)
