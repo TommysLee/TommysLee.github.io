@@ -1,34 +1,292 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>TommysLee hub for open‑source projects</title>
+  <title>Ty Github Open Source - 让技术回归解决问题的本质</title>
   <style>
+    :root {
+      --brand-ring: rgba(124, 92, 255, .2);
+      --brand: #7c5cff;
+      --brand-2: #ff7ab6;
+      --border: rgba(32, 32, 32, .09);
+      --text: #111827;
+      --button-gradient: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+    }
+
     body {
-      background-color: #F1F1F1
+      background: linear-gradient(125deg,rgba(255,122,182,.18),transparent 24rem),radial-gradient(circle at 50% 5%,rgba(255,255,255,.86),transparent 25rem),radial-gradient(circle at 18% 4%,rgba(255,181,69,.18),transparent 30rem),radial-gradient(circle at 82% 8%,rgba(124,92,255,.2),transparent 32rem),radial-gradient(circle at 68% 32%,rgba(51,214,166,.13),transparent 26rem),linear-gradient(180deg,#fbfaf8,#f6f4ef 52%,#fbfaf8);
+      margin: 0;
+      padding: 20px;
     }
-    h2 {
+
+    .text-grad-purple {
+      color: transparent;
+      background: linear-gradient(110deg,var(--text) 9%,var(--brand) 45%,var(--brand-2) 68%,var(--text) 96%);
+      background-clip: text;
+    }
+
+    .bg-grad {
+      border: 0;
+      color: #fff;
+      box-shadow: 0 16px 38px var(--brand-ring);
+      background: var(--button-gradient);
+    }
+
+    .bg-grad-2 {
+      border: 1px solid var(--border);
+      color: color-mix(in srgb,var(--brand) 72%,var(--text));
+      box-shadow: 0 8px 28px #1118270f;
+      background: linear-gradient(90deg,#7c5cff21,#ff7ab61f,#33d6a61a);
+    }
+
+    .bg-grad-3 {
+      border: 1px solid var(--border);
+      background: linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#635bff6b,#00c2ff52) border-box;
+    }
+
+    .bg-grad-dark-1 {
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 54px #291e0e14;
+      background: radial-gradient(circle at 12% 10%,rgba(124,92,255,.13),transparent 18rem),radial-gradient(circle at 88% 18%,rgba(0,194,255,.09),transparent 18rem),#f6f4ef;
+    }
+    .bg-grad-dark-2 {
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 54px #291e0e14;
+      background: radial-gradient(circle at 18% 20%,rgba(124,92,255,.2),transparent 18rem),radial-gradient(circle at 82% 24%,rgba(255,122,182,.15),transparent 18rem),linear-gradient(135deg,rgba(51,214,166,.09),transparent),#fff;
+    }
+
+    .bg-grad-green {
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 54px #291e0e14;
+      background: linear-gradient(135deg,rgba(0,194,255,.08),transparent 48%),#fff;
+    }
+    .bg-grad-green-dark {
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 54px #291e0e14;
+      background: radial-gradient(circle at 20% 12%,rgba(51,214,166,.14),transparent 15rem),linear-gradient(135deg,rgba(32,201,151,.09),transparent 42%),#fff;
+    }
+
+    .bg-grad-purple {
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 54px #291e0e14;
+      background: linear-gradient(135deg,rgba(99,91,255,.08),transparent 48%),#fff;
+    }
+    .bg-grad-purple-dark {
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 54px #291e0e14;
+      background: radial-gradient(circle at 12% 10%,rgba(124,92,255,.13),transparent 15rem),linear-gradient(135deg,rgba(99,91,255,.08),transparent 42%),#fff;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+    .d-flex > div {
+      flex: 1;
+      margin: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      padding: 0 24px;
+      min-height: 52px;
+      min-width: 200px;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      border-radius: 999px;
+    }
+
+    .area {
+      border-radius: 30px;
+      width: 500px;
+      height: 300px;
+      margin: 50px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .card {
+      width: 1180px;
+      height: 434px;
+      border: 1px solid rgba(32, 32, 32, .09);
+      box-shadow: 0 18px 54px #291e0e14;
+    }
+
+    .mt-0 {
+      margin-top: 0;
+    }
+    .mb-0 {
+      margin-bottom: 0;
+    }
+    .my-0 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .mr-2 {
+      margin-right: 8px;
+    }
+
+    .text-center {
       text-align: center;
-      margin: 100px 0;
     }
-    div {
-      text-align: center;
+
+    a {
+      text-decoration: none;
     }
-    div > img {
-      cursor: pointer;
+
+    .font-weight-bold {
+      font-weight: bold;
+    }
+
+    #app {
+      margin: 0 auto;
+      width: 90vw;
+      min-width: 1200px;
+    }
+    #app h1 {
+      font-size: clamp(52px,5.35vw,74px)
+    }
+    #app .subtitle {
+      color: #616975;
+      line-height: 28px;
+    }
+    .pos-rb {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      min-width: 100px;
+      min-height: 46px;
+    }
+    .flex-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 </head>
 <body>
-  <h2>My website is currently under construction...</h2>
   <div>
-    <img id="img" width="32" height="32" title="" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFMTZCRDY3REIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFMTZCRDY3RUIzRjAxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdCQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjdDQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SM9MCAAAA+5JREFUeNrEV11Ik1EY3s4+ddOp29Q5b0opCgKFsoKoi5Kg6CIhuwi6zLJLoYLopq4qsKKgi4i6CYIoU/q5iDAKs6syoS76IRWtyJ+p7cdt7sf1PGOD+e0c3dygAx/67ZzzPM95/877GYdHRg3ZjMXFxepQKNS6sLCwJxqNNuFpiMfjVs4ZjUa/pmmjeD6VlJS8NpvNT4QQ7mxwjSsJiEQim/1+/9lgMHgIr5ohuxG1WCw9Vqv1clFR0dCqBODElV6v90ogEDjGdYbVjXhpaendioqK07CIR7ZAqE49PT09BPL2PMgTByQGsYiZlQD4uMXtdr+JxWINhgINYhGT2MsKgMrm2dnZXgRXhaHAg5jEJodUAHxux4LudHJE9RdEdA+i3Juz7bGHe4mhE9FNrgwBCLirMFV9Okh5eflFh8PR5nK5nDabrR2BNJlKO0T35+Li4n4+/J+/JQCxhmu5h3uJoXNHPbmWZAHMshWB8l5/ipqammaAf0zPDDx1ONV3vurdidqwAQL+pEc8sLcAe1CCvQ3YHxIW8Pl85xSWNC1hADDIv0rIE/o4J0k3kww4xSlwIhcq3EFFOm7KN/hUGOQkt0CFa5WpNJlMvxBEz/IVQAxg/ZRZl9wiHA63yDYieM7DnLP5CiAGsC7I5sgtYKJGWe2A8seFqgFJrJjEPY1Cn3pJ8/9W1e5VWsFDTEmFrBcoDhZJEQkXuhICMyKpjhahqN21hRYATKfUOlDmkygrR4o4C0VOLGJKrOITKB4jijzdXygBKixyC5TDQdnk/Pz8qRw6oOWGlsTKGOQW6OH6FBWsyePxdOXLTgxiyebILZCjz+GLgMIKnXNzc49YMlcRdHXcSwxFVgTInQhC9G33UhNoJLuqq6t345p9y3eUy8OTk5PjAHuI9uo4b07FBaOhsu0A4Unc+T1TU1Nj3KsSSE5yJ65jqF2DDd8QqWYmAZrIM2VlZTdnZmb6AbpdV9V6ec9znf5Q7HjYumdRE0JOp3MjitO4SFa+cZz8Umqe3TCbSLvdfkR/kWDdNQl5InuTcysOcpFT35ZrbBxx4p3JAHlZVVW1D/634VRt+FvLBgK/v5LV9WS+10xMTEwtRw7XvqOL+e2Q8V3AYIOIAXQ26/heWVnZCVfcyKHg2CBgTpmPmjYM8l24GyaUHyaIh7XwfR9ErE8qHoDfn2LTNAVC0HX6MFcBIP8Bi+6F6cdW/DICkANRfx99fEYFQ7Nph5i/uQiA214gno7K+guhaiKg9gC62+M8eR7XsBsYJ4ilam60Fb7r7uAj8wFyuwM1oIOWgfmDy6RXEEQzJMPe23DXrVS7rtyD3Df8z/FPgAEAzWU5Ku59ZAUAAAAASUVORK5CYII=">
+    <h2 class="mt-0 text-grad-purple" style="width: 195px">Ty Open Source</h2>
+    <a class="btn bg-grad-2" style="min-width: 100px; position: absolute; right: 20px; top: 20px;" href="https://github.com/TommysLee">
+      <img src="https://github.githubassets.com/favicons/favicon.png" style="width: 20px" class="mr-2"/>
+      Github
+    </a>
   </div>
+  <div id="app">
+    <h1 class="my-0 text-grad-purple text-center">让技术回归解决问题的本质</h1>
+    <p class="text-center subtitle" style="font-size: 20px;">
+      从通用快速开发框架，到无差异化代码生成器，再到 AI 部署，均为开发者而生，为真实问题而建
+    </p>
+    <div class="d-flex">
+      <div class="area bg-grad-green">
+        <h3 class="text-grad-purple">TyFast —— 后端开发者的 Vue 3 快速开发框架</h3>
+        <p class="subtitle">
+          一套基于 Vue 3 + Vuetify 的后台管理系统快速开发框架，<span class="font-weight-bold">专为后端开发者设计</span>。
+          它的核心理念是：<span class="font-weight-bold">用 Vue，但不需要学 Node.js、Webpack、Vite</span>——你只需要会 Java Web 和 Thymeleaf，就能直接上手 Vue 3 组件开发。
+        </p>
+        <p class="subtitle">
+          一套代码同时适配 PC 端、移动端和小程序端，并支持多租户模式。
+        </p>
+        <p class="subtitle">
+          <span class="font-weight-bold">定位：</span>
+          让后端开发者零前端工程化负担，快速搭建管理系统和数据大屏。
+        </p>
+        <a class="btn bg-grad pos-rb" href="https://github.com/TommysLee/TyFast">浏览</a>
+      </div>
 
-  <script>
-    document.getElementById("img").addEventListener('click', () => {
-      window.location.reload();
-    })
-  </script>
+      <div class="area bg-grad-green-dark">
+        <h3 class="text-grad-purple">TyCode —— 模板驱动的通用代码生成器</h3>
+        <p class="subtitle">
+          一款“<span class="font-weight-bold">Write once, Generate more</span>”的代码生成工具。
+          只要你会写 Thymeleaf 模板，TyCode 就能帮你<span class="font-weight-bold">把重复的 CRUD 工作量降到零</span>——支持 Java、Vue、SQL、Python、Go 等任意语言。
+        </p>
+        <p class="subtitle">
+          支持 MySQL、Oracle、SQLServer 等多种数据库，模板和数据源支持热加载（修改无需重启），并已支持 GraalVM Native-Image 原生编译，可编译为独立二进制文件，毫秒级启动。
+        </p>
+        <p class="subtitle">
+          <span class="font-weight-bold">定位：</span>
+          让重复工作归零，统一团队代码规范，规避 AI 生成代码的不可控性。
+        </p>
+        <a class="btn bg-grad pos-rb" href="https://github.com/TommysLee/TyCode">浏览</a>
+      </div>
+    </div>
+
+    <div class="d-flex">
+      <div class="area bg-grad-purple">
+        <h3 class="text-grad-purple">TyEdu —— K12 精准教学系统</h3>
+        <p class="subtitle">
+          TyEdu 是一款面向 K12 教育阶段的<span class="font-weight-bold">开源免费精准教学系统</span>，致力于解决大班教学中“因材施教”难以落地的现实困境。
+          系统通过数据采集与智能分析，为每位学生绘制学情画像，帮助实现“精准学、精准补、精准练”。
+        </p>
+        <p class="subtitle">
+          核心功能包括：题库管理（智能组卷）、考试分析与报告、错题集（含变式推荐）、学情分析（雷达图、进步曲线、偏科预警）、学习技巧库等。基于 TyFast 开发，使用 SQLite 数据库和 Apache Lucene 作为推荐引擎核心。
+        </p>
+        <p class="subtitle">
+          <span class="font-weight-bold">定位：</span>
+          让数据照亮教育，帮助孩子少走弯路。
+        </p>
+        <a class="btn bg-grad pos-rb" href="https://github.com/TommysLee/TyEdu">浏览</a>
+      </div>
+
+      <div class="area bg-grad-purple-dark">
+        <h3 class="text-grad-purple">CVMonitor —— 基于 BoofCV 的视频变化检测</h3>
+        <p class="subtitle">
+          CVMonitor 是一个基于开源计算机视觉库 <span class="font-weight-bold">BoofCV</span> 实现的摄像头视频内容变化检测工具。
+          通过 FFmpeg 拉取摄像头 RTSP 主码流，每秒取一帧图片，基于 BoofCV 判断画面是否发生变化。
+        </p>
+        <p class="subtitle">
+          变化的帧图片经 Base64 编码后通过 REST API 发送给 AI 服务，可进一步做人员入侵检测、人脸检测与识别等处理。算法采用 MSE 与 NMSE 评价画面变化，可输出图片相似度。
+        </p>
+        <p class="subtitle">
+          <span class="font-weight-bold">定位：</span>
+          为 AI 视觉应用提供高效、轻量的视频帧变化检测前置能力。
+        </p>
+        <a class="btn bg-grad pos-rb" href="https://github.com/TommysLee/CVMonitor">浏览</a>
+      </div>
+    </div>
+
+    <div class="d-flex">
+      <div class="area bg-grad-purple">
+        <h3 class="text-grad-purple">TyOfficeTools —— 开箱即用的报表导出工具</h3>
+        <p class="subtitle">
+          TyOfficeTools 是一套<span class="font-weight-bold">高性能、开箱即用</span>的报表导出工具，全面覆盖 Word、Excel、PDF 等主流报表格式。
+        </p>
+        <p class="subtitle">
+          核心设计理念是 “<span class="font-weight-bold">所见即所得</span>” ：使用熟悉的 Office 工具在 docx 文件中设计版面，通过模板渲染数据，大幅降低 Hard Coding。Word 报表基于 poi-tl，Excel 报表基于 JXLS，PDF 通过 aspose.words 将 Word 转换为 PDF。
+        </p>
+        <p class="subtitle">
+          <span class="font-weight-bold">定位：</span>
+          统一报表导出方案，降低多语言系统维护成本。
+        </p>
+        <a class="btn bg-grad pos-rb" href="https://github.com/TommysLee/TyOfficeTools">浏览</a>
+      </div>
+
+      <div class="area bg-grad-purple">
+        <h3 class="text-grad-purple">Paddle-TS-Serving —— PaddlePaddle 时序模型服务化部署套件</h3>
+        <p class="subtitle">
+          Paddle-TS-Serving 是 PaddlePaddle 时序模型的高性能端到端在线推理服务，支持 RESTful 协议。
+          与官方 Paddle Serving 不同的是，<span class="font-weight-bold">新增了对 TS 模型协变量的支持</span>。
+        </p>
+        <p class="subtitle">
+          提供 Docker 镜像快速体验，免去复杂环境配置。RESTful API 包括健康检查接口（/health）和推理接口（/time-series-forecasting），支持 CSV 格式的时序预测输入输出。
+        </p>
+        <p class="subtitle">
+          <span class="font-weight-bold">定位：</span>
+          让 PaddlePaddle 时序模型的部署和服务化变得简单高效。
+        </p>
+        <a class="btn bg-grad pos-rb" href="https://github.com/TommysLee/Paddle-TS-Serving">浏览</a>
+      </div>
+    </div>
+
+    <div class="d-flex">
+      <div class="area card bg-grad-dark-2 flex-center">
+        <h1 class="my-0 text-grad-purple text-center">开源，让世界更美好</h1>
+      </div>
+    </div>
+
+    <div class="flex-center subtitle">
+      © 2026 TommysLee
+    </div>
+  </div>
 </body>
 </html>
